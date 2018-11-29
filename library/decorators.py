@@ -21,12 +21,9 @@ class CallableMethodDecorator(MethodDecorator):
         self.args = args
         self.kwargs = kwargs
 
-    def __call__(self, *args, **kwargs):
-        if not self.__instanciated:
-            self.method = args[0]
-            self.__instanciated = True
-            return self
-        return self.wrapper(*args, **kwargs)
+    def __call__(self, method):
+        self.method = method
+        return self
 
 
 class NonCallableMethodDecorator(MethodDecorator):
