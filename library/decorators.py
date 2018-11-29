@@ -1,13 +1,16 @@
 from functools import partial
 
+import abc
 
-class MethodDecorator:
+
+class MethodDecorator(metaclass=abc.ABCMeta):
     def __get__(self, obj, objtype=None):
         self._is_staticmethod = obj == None
         if self._is_staticmethod:
             return self.wrapper
         return partial(self.wrapper, obj)
 
+    @abc.abstractmethod
     def wrapper(self, *args, **kwargs):
         ...
 
