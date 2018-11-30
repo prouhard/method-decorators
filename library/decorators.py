@@ -3,11 +3,6 @@ from functools import partial
 import abc
 
 
-from functools import partial
-
-import abc
-
-
 class MethodDecorator(metaclass=abc.ABCMeta):
     def __init__(self, *args, **kwargs):
         self.method = None
