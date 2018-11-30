@@ -1,4 +1,1 @@
-from .decorators import (
-    CallableMethodDecorator,
-    NonCallableMethodDecorator
-)
+from .decorators import MethodDecorator
